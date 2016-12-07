@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://xmlns.jcp.org/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+
+<title>Vehicles details Page</title>
+<f:metadata>
+	  <f:event type="preRenderView" 
+	      listener="#{garageController.loadVehicles()}"/>
+	</f:metadata>
+<h:outputStylesheet library="css" name="stylesheet.css" />
+</h:head>
+<h:body>
+<h:form>
+		<h:messages class="m-alert" globalOnly = "true"></h:messages>
+	</h:form>
+	
+	<h2>Vehicle Details</h2>
+	<h:dataTable value="#{garageController.vehicles}" var="v" border="1" headerClass="table-header" rowClasses="table-odd-row, table-even-row">
+		<h:column>
+			<f:facet name="header">Registration</f:facet>
+			#{v.vReg}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Manufacturer Code</f:facet>
+			#{v.vManCode}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Model Code</f:facet>
+			#{v.vModCode}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Mileage</f:facet>
+			#{v.vMileage}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Price</f:facet>
+			#{v.vPrice}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Colour</f:facet>
+			#{v.vColour}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Fuel</f:facet>
+			#{v.vFuel}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Action</f:facet>
+			<h:form>
+			<h:commandLink  value="All Details" action="#{garageController.GetVehDetails(v.vReg)}">				
+			</h:commandLink><br />
+			<h:commandLink  value="Delete" action="#{garageController.deleteVehicle(v.vReg)}"
+				 onclick="if (! confirm('Do you Really want to delete this Vehicle?')) return false">	 
+			</h:commandLink>
+			</h:form>
+		</h:column>
+	</h:dataTable><br />
+	<h:panelGrid>
+		<h:form>
+			<h:commandButton value="Add Vehicle" action="AddVehicle"></h:commandButton><br />		
+		</h:form>
+		<h:outputLink value="Main_Menu.xhtml">Home</h:outputLink><br />
+	</h:panelGrid>
+</h:body>
+</html>

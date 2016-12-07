@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://xmlns.jcp.org/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+<title>Vehicles found</title>
+	 <f:metadata>
+	  <f:event type="preRenderView" 
+	      listener="#{garageController.loadSearchResults()}"/>
+	</f:metadata>
+	<h:outputStylesheet library="css" name="stylesheet.css" />
+</h:head>
+<h:body>
+	<h2>Search results</h2>
+	<h:dataTable value="#{garageController.foundVehicles}" var="ve" border="1" headerClass="table-header" rowClasses="table-odd-row, table-even-row">
+		<h:column>
+			<f:facet name="header">Registration</f:facet>
+			#{ve.reg}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Manufacturer Code</f:facet>
+			#{ve.manCode}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Manufacturer Name</f:facet>
+			#{ve.manName}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Model Code</f:facet>
+			#{ve.modCode}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Model Name</f:facet>
+			#{ve.modName}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Mileage</f:facet>
+			#{ve.mileage}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Price</f:facet>
+			#{ve.price}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Colour</f:facet>
+			#{ve.colour}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Fuel</f:facet>
+			#{ve.fuel}
+		</h:column>
+	</h:dataTable>
+	<h:panelGrid columns="2">
+		<h:outputLink value="Main_Menu.xhtml">Home</h:outputLink>	
+		<h:outputLink value="Car_Search.xhtml?faces-redirect=true">Vehicles</h:outputLink><br />
+	</h:panelGrid>
+</h:body>
+</html>

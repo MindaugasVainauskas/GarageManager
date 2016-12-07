@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://xmlns.jcp.org/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+
+<title>Car search Page</title>
+</h:head>
+<h:body>
+	<h2>Find All Vehicles</h2>
+	<h:form>
+		Price: <h:selectOneMenu value="#{garageController.vPriceCond}" id="priceCond">
+			<f:selectItem itemValue="less" itemLabel="Less than" />
+   			<f:selectItem itemValue="more" itemLabel="More than" />
+   			<f:selectItem itemValue="equal" itemLabel="Equal to" />
+		</h:selectOneMenu ><h:inputText value="#{garageController.vPrice}" id="price"></h:inputText><br /><br />
+		Colour: <h:inputText value="#{garageController.vCol}"></h:inputText><br /><br />
+		Fuel: <h:selectOneMenu value="#{garageController.vFuel}" id="fuel" p:placeholder="Fuel">
+			<f:selectItem itemValue="petrol" itemLabel="Petrol" />
+   			<f:selectItem itemValue="diesel" itemLabel="Diesel" />
+		</h:selectOneMenu><br /><br />
+		<h:commandButton value="Search" action="#{garageController.vehicleSearch(garageController.vPriceCond, garageController.vPrice, garageController.vCol, garageController.vFuel)}"></h:commandButton><br />
+	</h:form>
+	<h:outputLink value="Main_Menu.xhtml">Home</h:outputLink><br />
+</h:body>
+</html>

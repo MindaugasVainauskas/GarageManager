@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://xmlns.jcp.org/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+
+<title>Add Vehicle Page</title>
+</h:head>
+<h:body>
+	<h2>Add vehicle</h2>
+	<h:form>
+		Registration: <h:inputText value="#{garageController.reg}" id="reg" p:placeholder="Vehicle Registration" required="true" requiredMessage="Registration is Mandatory!"></h:inputText><h:message for="reg" /><br /><br />
+		Manufacturer Code: <h:inputText value="#{garageController.manCode}" id="manCode" p:maxlength="3" p:placeholder="Manufacturer Code" required="true" requiredMessage="Manufacturer Code is Mandatory!" >					
+		</h:inputText><h:message for="manCode" /><br /><br />
+		Model Code: <h:inputText value="#{garageController.modCode}" id="modCode" p:maxlength="3" p:placeholder="Model Code" required="true" requiredMessage="Model Code is Mandatory!" >					
+		</h:inputText><h:message for="modCode" /><br /><br />
+		Mileage: <h:inputText value="#{garageController.vMil}" id="mileage" p:placeholder="Mileage"></h:inputText><br /><br />
+		Price: <h:inputText value="#{garageController.vPrice}" id="price" p:placeholder="Price" required="true" requiredMessage="Price is Mandatory!"></h:inputText><h:message for="price" /><br /><br />
+		Colour: <h:inputText value="#{garageController.vCol}" id="vCol" p:placeholder="Colour"></h:inputText><br /><br />
+		Fuel: <h:selectOneMenu value="#{garageController.vFuel}" id="fuel" p:placeholder="Fuel">
+			<f:selectItem itemValue="Petrol" itemLabel="Petrol" />
+   			<f:selectItem itemValue="Diesel" itemLabel="Diesel" />
+		</h:selectOneMenu> <br /><br />
+		<h:commandButton value="Add" action="#{garageController.addVehicle(garageController.reg, garageController.manCode, garageController.modCode, garageController.vMil, garageController.vPrice, garageController.vCol, garageController.vFuel)}"></h:commandButton><br /><br />
+	</h:form>
+	<h:outputLink value="Main_Menu.xhtml">Back to main page	</h:outputLink>
+	
+	<h:outputLink value="Vehicles.xhtml">Vehicles</h:outputLink><br />
+</h:body>
+</html>

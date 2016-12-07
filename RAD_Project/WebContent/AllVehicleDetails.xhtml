@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://xmlns.jcp.org/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+
+<title>Full Vehicle Details</title>
+</h:head>
+<h:body>
+<h2>Full Vehicle Details</h2>
+	<h:panelGrid columns="2">		
+		<b>Registration:</b>  <h:outputText value="#{garageController.vehData[garageController.index].reg}"></h:outputText>
+		<b>Manufacturer code:</b>  <h:outputText value="#{garageController.vehData[garageController.index].manCode}"></h:outputText>
+		<b>Manufacturer Name:</b>  <h:outputText value="#{garageController.vehData[garageController.index].manName}"></h:outputText>
+		<b>Manufacturer Details:</b>  <h:outputText value="#{garageController.vehData[garageController.index].manDetails}"></h:outputText>
+		<b>Model Code:</b>  <h:outputText value="#{garageController.vehData[garageController.index].modCode}"></h:outputText>
+		<b>Model name:</b>  <h:outputText value="#{garageController.vehData[garageController.index].modName}"></h:outputText>
+		<b>Model Description:</b>  <h:outputText value="#{garageController.vehData[garageController.index].modDesc}"></h:outputText>
+		<b>Mileage:</b>  <h:outputText value="#{garageController.vehData[garageController.index].mileage}"></h:outputText>
+		<b>Price:</b>  <h:outputText value="#{garageController.vehData[garageController.index].price}"></h:outputText>
+		<b>Colour:</b>  <h:outputText value="#{garageController.vehData[garageController.index].colour}"></h:outputText>
+		<b>Fuel:</b>  <h:outputText value="#{garageController.vehData[garageController.index].fuel}"></h:outputText><br />
+	</h:panelGrid>
+	<h:panelGrid columns="2">
+	<h:outputLink value="Main_Menu.xhtml">Home	</h:outputLink>	
+	<h:outputLink value="Vehicles.xhtml">Vehicles</h:outputLink><br />
+	</h:panelGrid>
+</h:body>
+</html>

@@ -1,0 +1,18 @@
+.table-header{
+	color: white;
+	background-color: blue;	
+	padding: 15px;	
+}
+.table-odd-row {
+	padding: 15px;
+	background-color: yellow;
+}
+.table-even-row{
+	padding: 15px;
+	background-color: orange;
+}
+.m-alert {
+	color:red;
+	margin:8px;
+	padding:10px;
+}

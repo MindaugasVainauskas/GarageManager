@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://xmlns.jcp.org/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+
+<title>Model details Page</title>
+<f:metadata>
+	  <f:event type="preRenderView" 
+	      listener="#{garageController.loadModels()}"/>
+	</f:metadata>
+<h:outputStylesheet library="css" name="stylesheet.css" />
+</h:head>
+<h:body>
+	<h:form>
+		<h:messages class="m-alert" globalOnly="true"></h:messages>
+	</h:form>
+	<h2>Model Details</h2>
+	<h:dataTable value="#{garageController.models}" var="models" border="1" headerClass="table-header" rowClasses="table-odd-row, table-even-row">
+		<h:column>
+			<f:facet name="header">Manufacturer Code</f:facet>
+			#{models.modelManuCode}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Model Code</f:facet>
+			#{models.modelCode}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Model Name</f:facet>
+			#{models.modelName}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Model Description</f:facet>
+			#{models.modelDesc}
+		</h:column>
+		<h:column>
+		<f:facet name="header">Action</f:facet>
+		<h:form>
+			<h:commandLink  value="Delete" action="#{garageController.deleteModel(models.modelCode)}"
+				 onclick="if (! confirm('Do you Really want to delete this model?')) return false">	 
+			</h:commandLink>
+		</h:form>
+		</h:column>
+	</h:dataTable><br />
+
+	<h:panelGrid>
+	<h:form>
+		<h:commandButton value="Add Model" action="AddModel"></h:commandButton><br />
+	</h:form>
+	<h:outputLink value="Main_Menu.xhtml">Home</h:outputLink><br />
+	</h:panelGrid>
+</h:body>
+</html>
