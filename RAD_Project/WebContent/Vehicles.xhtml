@@ -18,7 +18,7 @@
 	</h:form>
 	
 	<h2>Vehicle Details</h2>
-	<h:dataTable value="#{garageController.vehicles}" var="v" border="1" headerClass="table-header" rowClasses="table-odd-row, table-even-row">
+	<h:dataTable value="#{garageController.vehicles}" var="v" headerClass="table-header" rowClasses="table-odd-row, table-even-row">
 		<h:column>
 			<f:facet name="header">Registration</f:facet>
 			#{v.vReg}
