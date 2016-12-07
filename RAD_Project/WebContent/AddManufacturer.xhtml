@@ -6,19 +6,20 @@
 <h:head>
 
 <title>Add Manufacturer Page</title>
+<h:outputStylesheet library="css" name="stylesheet.css" />
 </h:head>
 <h:body>
 	<h:form>
-		<h:messages globalOnly = "true"></h:messages>
+		<h:messages class="m-alert" globalOnly = "true"></h:messages>
 	</h:form>
 	<h2>Add Manufacturer</h2>
 	<h:form>
 		Code: <h:inputText value="#{garageController.manCode}" id="manCode" p:maxlength="3" p:placeholder="Manufacturer Code" required="true" requiredMessage="Manufacturer Code is Mandatory!" >					
-		</h:inputText><h:message for="manCode" /><br /><br />
+		</h:inputText><h:message class="m-alert" for="manCode" /><br /><br />
 		Name: <h:inputText value="#{garageController.manuName}" id="manName" p:placeholder="Manufacturer Name" required="true" requiredMessage="Manufacturer Name is Mandatory!" />
-		<h:message for="manName" /><br /><br />
+		<h:message class="m-alert" for="manName" /><br /><br />
 		Details: <h:inputText value="#{garageController.manuDetails}" id="manDet" p:placeholder="Manufacturer Details" />
-		<h:message for="manDet" /><br /><br />
+		<h:message class="m-alert" for="manDet" /><br /><br />
 		<h:commandButton value="Add" action="#{garageController.addManufacturer(garageController.manCode, garageController.manuName, garageController.manuDetails)}">
 		</h:commandButton>
 	</h:form>

@@ -6,18 +6,19 @@
 <h:head>
 
 <title>Add Model Page</title>
+<h:outputStylesheet library="css" name="stylesheet.css" />
 </h:head>
 <h:body>	
 	<h2>Add Model</h2>
 	<h:form>
 		Manufacturer Code: <h:inputText value="#{garageController.manCode}" id="manCode" p:maxlength="3" p:placeholder="Manufacturer Code" required="true" requiredMessage="Manufacturer Code is Mandatory!" >					
-		</h:inputText><h:message for="manCode" /><br /><br />
+		</h:inputText><h:message class="m-alert" for="manCode" /><br /><br />
 		Code: <h:inputText value="#{garageController.modCode}" id="modCode" p:maxlength="3" p:placeholder="Model Code" required="true" requiredMessage="Model Code is Mandatory!" >					
-		</h:inputText><h:message for="modCode" /><br /><br />
+		</h:inputText><h:message class="m-alert" for="modCode" /><br /><br />
 		Name: <h:inputText value="#{garageController.modelName}" id="modName" p:placeholder="Model Name" required="true" requiredMessage="Model Name is Mandatory!" />
-		<h:message for="modName" /><br /><br />
+		<h:message class="m-alert" for="modName" /><br /><br />
 		Description: <h:inputText value="#{garageController.modelDesc}" id="modDesc" p:placeholder="Model Description" />
-		<h:message for="manName" /><br /><br />
+		<h:message class="m-alert" for="manName" /><br /><br />
 		<h:commandButton value="Add" action="#{garageController.addModel(garageController.manCode, garageController.modCode, garageController.modelName, garageController.modelDesc)}"></h:commandButton>
 	</h:form><br /><br /><br />
 	<h:outputLink value="Main_Menu.xhtml">Back to main page	</h:outputLink>
